@@ -21,7 +21,7 @@ export default function Header({ onOpenHistory, userData }: Props) {
   };
 
   return (
-    <>
+    <div>
       <div
         style={{
           background: "#2E5E1E",
@@ -75,7 +75,17 @@ export default function Header({ onOpenHistory, userData }: Props) {
         >
           Sair
         </Button>
+
+        <div style={{ marginTop: "auto", textAlign: "center" }}>
+          <Text type="secondary" style={{ fontSize: 12 }}>
+            Desenvolvido por
+          </Text>
+          <br />
+          <Text strong style={{ fontSize: 13 }}>
+            UpBusiness Tecnologia - (88) 99688-2815
+          </Text>
+        </div>
       </Drawer>
-    </>
+    </div>
   );
 }

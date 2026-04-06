@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Inicio from "./pages/Inicio";
 import LoginPage from "./pages/Login";
@@ -14,19 +14,13 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = firebaseService.onAuthStateChanged(async (user) => {
-      console.log("Auth mudou:", user);
-
       setUser(user);
 
       if (user) {
         let data = await firebaseService.getCurrentUserData(user.uid);
 
-        console.log("Dados do usuário:", data);
-
         if (!data) {
-          console.log("Usuário não existe, criando...");
           data = await firebaseService.createUserIfNotExists(user);
-          console.log("Usuário criado:", data);
         }
 
         setUserData(data);
@@ -40,23 +34,33 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  if (loading) {
-    return (
-      <div style={{ textAlign: "center", marginTop: 40 }}>
-        <p>Carregando...</p>
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <LoginPage />;
-  }
+  if (loading) return <p>Carregando...</p>;
 
   return (
-    <>
-      <Inicio user={user} userData={userData} />
-      <CookieConsent />
-    </>
+    <div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            user ? (
+              <>
+                <Inicio user={user} userData={userData} />
+                <CookieConsent />
+              </>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            !user ? <LoginPage /> : <Navigate to="/" />
+          }
+        />
+      </Routes>
+    </div>
   );
 }
 

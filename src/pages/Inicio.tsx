@@ -76,7 +76,7 @@ export default function Inicio({ user, userData }: InicioProps) {
   }, [historyOpen]);
 
   return (
-    <>
+    <div>
       <Header
         onOpenHistory={() => setHistoryOpen(true)}
         userData={userData}
@@ -302,6 +302,6 @@ export default function Inicio({ user, userData }: InicioProps) {
           </div>
         )}
       </Modal>
-    </>
+    </div>
   );
 }
