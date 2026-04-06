@@ -37,7 +37,7 @@ function App() {
   if (loading) return <p>Carregando...</p>;
 
   return (
-    <div>
+    <div >
       <Routes>
         <Route
           path="/"

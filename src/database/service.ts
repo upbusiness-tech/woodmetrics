@@ -95,13 +95,11 @@ export const firebaseService = {
   },
 
   login: async (email: string, password: string) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log("Logado:", userCredential.user);
-      })
-      .catch((error) => {
-        console.error(error.message);
-      });
+    try {
+      return await signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      throw error; 
+    }
   },
 
   onAuthStateChanged(callback: (user: any) => void) {

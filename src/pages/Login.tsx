@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Input, Button, Card, Typography, message } from "antd";
+import { Input, Button, Card, Typography, message, Divider } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { firebaseService } from "../database/service";
 
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -44,30 +44,36 @@ export default function LoginPage() {
   return (
     <div
       style={{
-        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#ffffff",
-        padding: 16,
+        background: "#4E7D2A",
+        height: '100vh',
+        paddingInline: 20        
       }}
     >
       <Card
         style={{
           width: "100%",
-          maxWidth: 400,
-          borderRadius: 20,
-          boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+          maxWidth: 360,
+          borderRadius: 15,
+          boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
         }}
-        bodyStyle={{ padding: 24 }}
+        bodyStyle={{
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
-        <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <Title level={3} style={{ color: "#2E5E1E", margin: 0 }}>
-            Login
+        <div style={{ textAlign: "center", marginBottom: 20 }}>
+          <Title level={4} style={{ margin: 0 }}>
+            Madereira São José
           </Title>
+          <Text type="secondary" style={{ fontSize: 13 }}>
+            Acesso ao sistema
+          </Text>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           <Input
             size="large"
             placeholder="Email"
@@ -95,12 +101,24 @@ export default function LoginPage() {
               backgroundColor: "#2E5E1E",
               borderColor: "#2E5E1E",
               borderRadius: 12,
-              height: 48,
+              height: 46,
               fontWeight: "bold",
+              marginTop: 6,
             }}
           >
             Entrar
           </Button>
+        </div>
+
+        <div style={{ marginTop: 20, textAlign: "center" }}>
+          <Divider style={{ margin: "12px 0" }} />
+          <Text type="secondary" style={{ fontSize: 11 }}>
+            Desenvolvido por
+          </Text>
+          <br />
+          <Text strong style={{ fontSize: 12 }}>
+            UpBusiness Tecnologia
+          </Text>
         </div>
       </Card>
     </div>
