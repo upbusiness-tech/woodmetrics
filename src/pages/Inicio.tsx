@@ -263,19 +263,6 @@ export default function Inicio({ user, userData }: InicioProps) {
                       }}
                     >
                       <Button
-                        size="small"
-                        onClick={() => {
-                          setPieces(report.pieces);
-                          setHeight(report.standardHeight);
-                          setCategory(report.category);
-                          setClientName(report.clientName);
-                          setHistoryOpen(false);
-                        }}
-                      >
-                        Abrir Relatório
-                      </Button>
-
-                      <Button
                         type="primary"
                         icon={<FilePdfOutlined />}
                         size="small"

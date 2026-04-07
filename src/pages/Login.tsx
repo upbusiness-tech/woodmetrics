@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Input, Button, Card, Typography, message, Divider } from "antd";
 import { MailOutlined, LockOutlined } from "@ant-design/icons";
 import { firebaseService } from "../database/service";
+import fundoLogin from '../assets/fundo.jpg'
 
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -45,13 +46,18 @@ export default function LoginPage() {
     <div
       style={{
         display: "flex",
+        flexDirection: 'column',
         justifyContent: "center",
         alignItems: "center",
-        background: "#4E7D2A",
+        backgroundImage: `url(${fundoLogin})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         height: '100vh',
-        paddingInline: 20        
+        paddingInline: 20
       }}
     >
+
       <Card
         style={{
           width: "100%",
@@ -65,9 +71,9 @@ export default function LoginPage() {
         }}
       >
         <div style={{ textAlign: "center", marginBottom: 20 }}>
-          <Title level={4} style={{ margin: 0 }}>
+          <h2 className="font-bold" style={{ fontFamily: "Georgia, serif", color: "hsl(36, 87%, 9%)" }}>
             Madereira São José
-          </Title>
+          </h2>
           <Text type="secondary" style={{ fontSize: 13 }}>
             Acesso ao sistema
           </Text>
