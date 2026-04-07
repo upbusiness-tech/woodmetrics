@@ -72,7 +72,7 @@ export default function LoginPage() {
       >
         <div style={{ textAlign: "center", marginBottom: 20 }}>
           <h2 className="font-bold" style={{ fontFamily: "Georgia, serif", color: "hsl(36, 87%, 9%)" }}>
-            Madereira São José
+            Madeireira São José
           </h2>
           <Text type="secondary" style={{ fontSize: 13 }}>
             Acesso ao sistema
